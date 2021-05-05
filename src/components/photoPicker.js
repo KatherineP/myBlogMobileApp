@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Button, Image, View, Platform } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import * as MediaLibrary from 'expo-media-library';
+import { Camera } from 'expo-camera';
 
 export const PhotoPicker = ({onPick}) => {
   const [image, setImage] = useState(null);
@@ -9,7 +10,7 @@ export const PhotoPicker = ({onPick}) => {
   useEffect(() => {
     (async () => {
       if (Platform.OS !== 'web') {
-       const { status } = await MediaLibrary.requestPermissionsAsync();
+       const { status } = await Camera.requestPermissionsAsync();
         if (status !== 'granted') {
           alert('Sorry, we need camera roll permissions to make this work!');
         }
