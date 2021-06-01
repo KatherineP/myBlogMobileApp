@@ -14,7 +14,6 @@ export const AppHeaderIcon = (props) => {
     />
   );
 };
-//test
 
 export const MaterialHeaderButtons = (props) => {
   return <HeaderButtons HeaderButtonComponent={AppHeaderIcon} {...props} />;
